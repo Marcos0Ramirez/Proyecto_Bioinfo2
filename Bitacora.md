@@ -9,11 +9,15 @@ Por tanto tomamos la muestra con el Accession: SRX10248073, y asi podemos ver la
 
 Podemos ver las siguientes caracteristicas, que la parte de ***show Abstract*** tiene una pequeña descripcion, la cual cito:  `Isolate raw read files from the Washington SARS-CoV-2 outbreak`, asi como en `Strategy` pues el proposito es secuenciar el RNA, supondre que es con el proposito de saber los patrones de expresion (no olvidar citar RNA-seq y Transcriptome de README.md) por esta razon es que el `fastq` solo tiene 930.3 mega bases. Por otra parte debemos de tener en cuenta que los reads son single, lo cual nos ayudara para pasos posteriores.
 
-Ya que dentro de la computadora que opero, no pude descargar por mi cuenta el SRA que escogi, trabaje mediante una computadora remota, aplicando el siguiente comando
+Ya que dentro de la computadora que opero, no pude descargar por mi cuenta el SRA que escogi, trabaje mediante una ***computadora*** remota, aplicando los siguientes comandos:
 
 `fastq-dump SRR13867562`
 
-para descargarla (recordemos que es el comando para un SRA con reads single), y posterior a ello a observar
+para descargarla (recordemos que es el comando para un SRA con reads single).
+</br>
+Para hacer el analisis de control de calidad corrimos el siguiente comando
+
+fastq 
 
 
 
