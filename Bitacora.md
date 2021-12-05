@@ -1,2 +1,8 @@
-<h1 style="color:red;"> Ahora si, esta es mi bitacora jeje </h1>
-<p style="color:red;">Red paragraph text</p>
+<html>
+<body style="background-color:powderblue;">
+
+<h1>This is a heading</h1>
+<p>This is a paragraph.</p>
+
+</body>
+</html>
