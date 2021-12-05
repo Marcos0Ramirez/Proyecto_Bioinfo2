@@ -29,7 +29,13 @@ drwxrwxr-x 3 mramirez mramirez   28 Dec  5 01:23 ncbi
 </br>
 Para hacer el analisis de control de calidad, tomamos el archivo SRR13867562.fastq y corrimos el siguiente comando
 
-fastq SRR13867562.fastq
+`fastq SRR13867562.fastq`
 
+Y saldra los dos archivos nuevos `SRR13867562_fastqc.html` y `SRR13867562_fastqc.zip`
+```
+$ ls
+SRR13867562.fastq  SRR13867562_fastqc.html  SRR13867562_fastqc.zip  ncbi
+```
+Por tanto abres `SRR13867562_fastqc.html` para realizar el analisis. Entonces...
 
 
