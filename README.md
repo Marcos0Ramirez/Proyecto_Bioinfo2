@@ -4,3 +4,10 @@
 
 Este link provee la forma de como agregar una imagen a tu repositorio a tu proyecto en markdown
 https://programmerclick.com/article/866259042/
+
+Ha hacer citas sobre que es el 
+RNA-seq
+http://www.news-courier.com/genomics/articles/rna-seq-basics-applications-and-protocol-299461
+
+Transcriptoma
+https://www.genome.gov/es/about-genomics/fact-sheets/Transcriptoma
