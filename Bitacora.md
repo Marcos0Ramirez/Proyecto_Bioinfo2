@@ -17,14 +17,14 @@ para descargarla (recordemos que es el comando para un SRA con reads single).
 Resultando en
 
 ```
-$ fastq-dump SRR13867562 </br>
-Read 5054244 spots for SRR13867562 </br>
-Written 5054244 spots for SRR13867562 </br>
+$ fastq-dump SRR13867562
+Read 5054244 spots for SRR13867562
+Written 5054244 spots for SRR13867562
 
-$ ls -lh </br>
-total 2.2G </br>
--rw-rw-r-- 1 mramirez mramirez 2.2G Dec  5 01:32 SRR13867562.fastq </br>
-drwxrwxr-x 3 mramirez mramirez   28 Dec  5 01:23 ncbi </br>
+$ ls -lh
+total 2.2G
+-rw-rw-r-- 1 mramirez mramirez 2.2G Dec  5 01:32 SRR13867562.fastq
+drwxrwxr-x 3 mramirez mramirez   28 Dec  5 01:23 ncbi
 ```
 </br>
 Para hacer el analisis de control de calidad, tomamos el archivo SRR13867562.fastq y corrimos el siguiente comando
