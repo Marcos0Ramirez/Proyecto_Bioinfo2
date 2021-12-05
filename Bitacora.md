@@ -370,6 +370,7 @@ GCTCCAGCACATATATCTACTATTGGTGTTTGTTCTATGACTGACATAGC	5062	0.10015345519527748	No H
 </br>
 
 
+
 ## Adapter Content
 ![Adapter Content](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/Adapter_Content.png)</br>
 
