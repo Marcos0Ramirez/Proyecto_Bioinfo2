@@ -69,16 +69,18 @@ SRR13867562.fastq  SRR13867562_fastqc.html  SRR13867562_fastqc.zip  ncbi
 Por tanto abres `SRR13867562_fastqc.html` para realizar el analisis. Entonces de la pagina https://www.bioinformatics.babraham.ac.uk/projects/fastqc/ en el apartado de ***Documentation*** puedes hacer click en ***copy of the FastQC*** para hacer una mejor interpretacion de las estadisticas que aparecen en tu fastqc.
 
 ## Basic Statistics </br>
-![Basic Statistics](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/Basic_Statistics.png)
+![Basic Statistics](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/Basic_Statistics.png) </br>
 te da el </br>
-nombre del archivo, </br>
-el tipo de archivo (el cual esta bien ya que señala que tiene nombrada de forma correcta las bases) </br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
+1. Nombre del archivo
+2. El tipo de archivo (el cual esta bien ya que señala que tiene nombrada de forma correcta las bases)
+3. El encoding indica que los valores de calidad ASCII son a base de las tecnologias señaladas
+4. La cantidad de secuencias procesadas de poco mas de 5 millones
+5. El numero de secuencias de baja calidad removidas es de 0
+6. La longitud promedio de las secuencias es de 190 bases, ya que todas son de esa longitud
+7. Y el contenido de GC consta de un porcentaje de casi la mitad (los detalles en la grafica correspondiente)
+
+## Per base sequence quality
+`r 10 + 10`</br>
 </br>
 </br>
 </br>
