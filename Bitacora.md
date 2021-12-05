@@ -14,10 +14,20 @@ Ya que dentro de la computadora que opero, no pude descargar por mi cuenta el SR
 `fastq-dump SRR13867562`
 
 para descargarla (recordemos que es el comando para un SRA con reads single).
-</br>
-Para hacer el analisis de control de calidad corrimos el siguiente comando
+Resultando en
 
-fastq 
+`$ fastq-dump SRR13867562
+Read 5054244 spots for SRR13867562
+Written 5054244 spots for SRR13867562
+
+$ ls -lh
+total 2.2G
+-rw-rw-r-- 1 mramirez mramirez 2.2G Dec  5 01:32 SRR13867562.fastq
+drwxrwxr-x 3 mramirez mramirez   28 Dec  5 01:23 ncbi`
+</br>
+Para hacer el analisis de control de calidad, tomamos el archivo SRR13867562.fastq y corrimos el siguiente comando
+
+fastq SRR13867562.fastq
 
 
 
