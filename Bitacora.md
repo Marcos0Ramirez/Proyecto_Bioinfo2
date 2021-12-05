@@ -68,9 +68,34 @@ SRR13867562.fastq  SRR13867562_fastqc.html  SRR13867562_fastqc.zip  ncbi
 ```
 Por tanto abres `SRR13867562_fastqc.html` para realizar el analisis. Entonces de la pagina https://www.bioinformatics.babraham.ac.uk/projects/fastqc/ en el apartado de ***Documentation*** puedes hacer click en ***copy of the FastQC*** para hacer una mejor interpretacion de las estadisticas que aparecen en tu fastqc.
 
-En Basic Statistics te da el 
+## Basic Statistics </br>
+te da el </br>
 nombre del archivo, </br>
 el tipo de archivo (el cual esta bien ya que señala que tiene nombrada de forma correcta las bases) </br>
 f
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+
+Ahora que ya hicimos el analisis, vamos a correr Trimmomatic, de acuerdo a esta pagina (http://www.usadellab.org/cms/?page=trimmomatic) cada una de las siguientes acciones indica
+```
+Remove adapters 
+        [Remover adaptadores] (ILLUMINACLIP:TruSeq3-PE.fa:2:30:10)
+Remove leading low quality or N bases (below quality 3) 
+        [Remover las principales bases de baja calidad o bases N (debajo de calidad 3)] (LEADING:3)
+Remove trailing low quality or N bases (below quality 3) 
+        [En mi entendido, remover las bases finales de baja calidad o bases N (debajo de calidad 3)] (TRAILING:3)
+Scan the read with a 4-base wide sliding window, cutting when the average quality per base drops below 15 
+        [Escanea la lectura (read) a razon de 4 en 4 bases y cortando cuando el promedio de calidad cae por debajo de 15] (SLIDINGWINDOW:4:15)
+Drop reads below the 36 bases long 
+        [Quita lecturas que esten por debajo de 36 bases de longitud](MINLEN:36)
+```
+Entonces con esto, podemos aplicar el siguiente comando
 
 
