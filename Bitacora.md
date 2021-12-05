@@ -69,10 +69,10 @@ SRR13867562.fastq  SRR13867562_fastqc.html  SRR13867562_fastqc.zip  ncbi
 Por tanto abres `SRR13867562_fastqc.html` para realizar el analisis. Entonces de la pagina https://www.bioinformatics.babraham.ac.uk/projects/fastqc/ en el apartado de ***Documentation*** puedes hacer click en ***copy of the FastQC*** para hacer una mejor interpretacion de las estadisticas que aparecen en tu fastqc.
 
 ## Basic Statistics </br>
+![Basic Statistics](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/Basic_Statistics.png)
 te da el </br>
 nombre del archivo, </br>
 el tipo de archivo (el cual esta bien ya que señala que tiene nombrada de forma correcta las bases) </br>
-f
 </br>
 </br>
 </br>
