@@ -71,35 +71,47 @@ Por tanto abres `SRR13867562_fastqc.html` para realizar el analisis. Entonces de
 ## Basic Statistics </br>
 ![Basic Statistics](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/Basic_Statistics.png) </br>
 te da el </br>
-1. Nombre del archivo
+1. Nombre del archivo fastq
 2. El tipo de archivo (el cual esta bien ya que señala que tiene nombrada de forma correcta las bases)
-3. El encoding indica que los valores de calidad ASCII son a base de las tecnologias señaladas
+3. El encoding indica que los valores de calidad ASCII estan basadas en las tecnologias señaladas
 4. La cantidad de secuencias procesadas de poco mas de 5 millones
 5. El numero de secuencias de baja calidad removidas es de 0
 6. La longitud promedio de las secuencias es de 190 bases, ya que todas son de esa longitud
 7. Y el contenido de GC consta de un porcentaje de casi la mitad (los detalles en la grafica correspondiente)
-
+****
 ## Per base sequence quality
 ![Per base sequence quality](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/Per_base_sequence_quality.png)</br>
-
+Podemos ver que la calidad de las secuencias es buena, que el 100% de las bases representan calidades por encima de 28 de calidad ASCII (sanger / Ilumina 1.9) a excepcion al final la base numero 190 llega a tener calidades pobres de hasta 11, pero aun en promedio sigue siendo de buena calidad ya que las bases con muy baja calidad (poco menos del 25% de ellas) tienen una pequeña influencia.
+</br>
 ## Per sequence quality scores
-![Per sequence quality scores](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/Per_sequence_quality_scores.png)</br>
-
+![Per sequence quality scores](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/Per_sequence_quality_scores.png)
+</br>
+Aqui es mas visible, ya que la distribucion de las bases ronda en calidades mayores a 36, esto quiere decir que la tasa de error es menor a 0.2%
+</br>
 ## Per base sequence content
 ![Per base sequence content](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/Per_base_sequence_content.png)</br>
-
+El resultado no es el mas optimo al inicio y al final, osea que hay diferencias mayores al 10% entre G y C en la posicion 5, 150-154, 170-174 y 190. La misma situacion entre A y T la diferencia es >10% en la posiciones 5-6, a mitad entre 150-154. Aunque esto sera removido posteriormente
+</br>
 ## Per sequence GC content
-![Per sequence GC content](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/Per_sequence_GC_content.png)</br>
-
+![Per sequence GC content](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/Per_sequence_GC_content.png)
+</br>
+Es observable que la  distribucion en el contenido de GC esta fuera del teorico, resultando en que mayor a 450000 secuencias tiene un porcentaje de GC entre 35-52% por tanto indica que no hay una buena distribucion y hay muchas secuencias con tendencia a tener >35%
+</br>
 ## Per base N content
-![Per base N content](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/Per_base_N_content.png)</br>
-
+![Per base N content](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/Per_base_N_content.png)
+</br>
+Esto indica que todas las bases fueron nombradas y no hubo ninguna que no se reconociera.
+</br>
 ## Sequence Length Distribution
-![Sequence Length Distribution](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/Sequence_Length_Distribution.png)</br>
-
+![Sequence Length Distribution](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/Sequence_Length_Distribution.png)
+</br>
+Como vimos inicio, no señalo el minimo y el maximo en longitud de secuencias, la mayoria o me atreveria a decir que todas tienen longitud de 190 bases
+</br>
 ## Sequence Duplication Levels
-![Sequence Duplication Levels](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/Sequence_Duplication_Levels.png)</br>
-
+![Sequence Duplication Levels](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/Sequence_Duplication_Levels.png)
+</br>
+Los niveles de duplicacion son muy altos, de hasta el 60% lo que podria significar que hay un bajo nivel de cobertura de la secuencia objetivo, y por tanto al eliminar los duplicados solo haria que nos quedemos con el 1.58% de secuencias
+</br>
 ## Overrepresented sequences
 Para hacer esta tabla, copie del html y lo puse directamente en este markdown.
 ```
