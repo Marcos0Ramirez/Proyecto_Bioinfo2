@@ -80,10 +80,25 @@ te da el </br>
 7. Y el contenido de GC consta de un porcentaje de casi la mitad (los detalles en la grafica correspondiente)
 
 ## Per base sequence quality
-`r 10 + 10`</br>
-</br>
-</br>
+![Per base sequence quality](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/Per_base_sequence_quality.png)</br>
 
+## Per sequence quality scores
+![Per sequence quality scores](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/Per_sequence_quality_scores.png)</br>
+
+## Per base sequence content
+![Per base sequence content](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/Per_base_sequence_content.png)</br>
+
+## Per sequence GC content
+![Per sequence GC content](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/Per_sequence_GC_content.png)</br>
+
+## Per base N content
+![Per base N content](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/Per_base_N_content.png)</br>
+
+## Sequence Length Distribution
+![Sequence Length Distribution](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/Sequence_Length_Distribution.png)</br>
+
+## Sequence Duplication Levels
+![Sequence Duplication Levels](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/Sequence_Duplication_Levels.png)</br>
 
 ## Overrepresented sequences
 Para hacer esta tabla, copie del html y lo puse directamente en este markdown.
@@ -353,6 +368,10 @@ ACTGTATAGGCAGAGCACTTCTCATTAAGTACTTTATCAATCCTTTCATC	5088	0.10066787436459339	No H
 GCTCCAGCACATATATCTACTATTGGTGTTTGTTCTATGACTGACATAGC	5062	0.10015345519527748	No Hit
 ```
 </br>
+
+
+## Adapter Content
+![Adapter Content](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/Adapter_Content.png)</br>
 
 Ahora que ya hicimos el analisis, vamos a correr Trimmomatic, de acuerdo a esta pagina (http://www.usadellab.org/cms/?page=trimmomatic) cada una de las siguientes acciones indica
 ```
