@@ -463,7 +463,9 @@ MERS.fasta  MERS.fasta.amb  MERS.fasta.ann  MERS.fasta.bwt  MERS.fasta.pac  MERS
 Ahora que ya tenemos el indice, podemos hacer el mapeo, para ello en base al archivo README.md de la pagina https://github.com/lh3/bwa podemos usar la siguiente sintaxis `bwa mem ref.fa reads.fq > aln.sam` ya que los reads son de 190bp, ademas provienen de la secuenciacion Illumina, tal como señala este repositorio. Entonces
 
 ```
-
+(base) [ Index_bwa] $ bwa mem MERS.fasta ../trimmSRR13867562.fastq > SARS2alignMERS.sam
+(base) [ Index_bwa] $ ls
+MERS.fasta  MERS.fasta.amb  MERS.fasta.ann  MERS.fasta.bwt  MERS.fasta.pac  MERS.fasta.sa  SARS2alignMERS.sam
 ```
 
 
