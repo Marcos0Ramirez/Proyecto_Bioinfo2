@@ -476,7 +476,7 @@ MERS.fasta  MERS.fasta.amb  MERS.fasta.ann  MERS.fasta.bwt  MERS.fasta.pac  MERS
 Entonces para obtener la cobertura abrimos `Tablet` y en la parte que dice ***home*** > ***Open assembly*** y en el primer recuadro se coloca el archivo `.sam` y en el segundo recuadro se pone `.fasta`, una vez terminado el ensamble presionamos donde estan las estadisticas en el apartado de la izquierda y asi podemos ver el mapeo tal como este </br>![Tablet](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/TABLET.png)</br> y para obtener la cobertura nos vamos a ***advanced*** y en donde dice ***coverage*** lo presionamos y seleccionamos tambien ***Coordinates*** para finalemente poner el raton sobre el mapa que esta en la parte superior </br>![Descarga](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/Cobertura.png)</br> Por lo tanto vemos qeu tienen una buena cobertura, del 99.993%
 
 ## Ensamble
-
+De acuerdo con la pagina oficial de spades (el ensamblador de genomas que 
 
 
 
