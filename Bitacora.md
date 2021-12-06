@@ -517,17 +517,22 @@ K77  before_rr.fasta                          dataset.info   pipeline_state     
 Para ver la calidad del ensamble usare quast http://quast.sourceforge.net/docs/manual.html#sec2.3 y de acuerdo con la sintaxis `quast.py [options] <contig_file(s)>` correre el siguiente comando con referencia
 
 ```
-(base) [ Ensamble]$ quast.py --split-scaffolds -t 4 -r ../SARS/SARS.fasta scaffolds.fasta 
+(base) [ Ensamble]$ quast.py --split-scaffolds -t 4 -r ../SARS/SARS.fasta scaffolds.fasta -o REF_CALIDAD_ENSAMBLE/
+(base) [ Ensamble]$ cd REF_CALIDAD_ENSAMBLE/
+(base) [ REF_CALIDAD_ENSAMBLE]$ ls
+aligned_stats    genome_stats    quast.log    report.tex  transposed_report.tex
+basic_stats      icarus.html     report.html  report.tsv  transposed_report.tsv
+contigs_reports  icarus_viewers  report.pdf   report.txt  transposed_report.txt
 ```
 
 Lo que se traduce en 
 1. --split-scaffolds esta opcion indica que hace el analisis por scaffolds
 2. -t indica el numero de nucleos a usar (este caso 4)
-3. -r indica la referencia y despues se pone la referencia y despues el .fasta con los scaffolds
+3. -r indica la referencia y despues se pone la referencia
 4. por consiguiente el nombre del fasta con scaffolds
-5. finalmente la salida a la carpeta en donde se quiere que se guarden los registros
+5. -o finalmente la salida a la carpeta en donde se quiere que se guarden los registros
 
 Entonces dejo el link para conseguir el reporte de calidad del ensamble https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/REF_CALIDAD_ENSAMBLE_report.html
-y asi en base a los datos (**donde consulte para saber el significado de cada cosa**  http://quast.sourceforge.net/docs/manual.html#sec3.1.1) </br> entonces el ***porcentaje de ensamble*** fue de tan solo el 46.96%; </br> el ***radio de duplicacion*** indica que muchos contigs cubren una misma region ya que el numero es `>1`; </br> el ***alineamiento mas largo*** es de 1501; </br> la cantidad de bases alineadas correctamente es de 14,433; </br> el parametro NGA50 es nulo ya que no fue necesario contar por bloques de alineamientos ya que no hubo contigs mal ensamblados (por lo que entendi) lo necesario para tenerlos que romper y seguir este protocolo; </br> en los ***ensamblajes incorrectos*** encontro 4 contigs de los cuales se tuvieron que ***relocalizar***, o invertir entre strands o buscar en otro cromosoma; 
+y asi en base a los datos (**donde consulte para saber el significado de cada cosa**  http://quast.sourceforge.net/docs/manual.html#sec3.1.1) </br> </br> entonces el ***porcentaje de ensamble*** fue de tan solo el 46.96%; </br> el ***radio de duplicacion*** indica que muchos contigs cubren una misma region ya que el numero es `>1`; </br> el ***alineamiento mas largo*** es de 1501; </br> la cantidad de bases alineadas correctamente es de 14,433; </br> el parametro NGA50 es nulo ya que no fue necesario contar por bloques de alineamientos ya que no hubo contigs mal ensamblados (por lo que entendi) lo necesario para tenerlos que romper y seguir este protocolo; </br> en los ***ensamblajes incorrectos*** encontro 4 contigs de los cuales se tuvieron que ***relocalizar***, o ***invertir*** entre strands o ***buscar en otro cromosoma***; </br>  la ***longitud total de las bases de los contigs*** que contienen bases mal ensambladas es de 4628; </br> en ***promedio el numero de bases que no hubo encuentro sobre 100kbp*** es de 106.81bp; </br> el ***numero de mutaciones promedio que se encontro en 100kbp*** es de ~25; </br> todo es en estadisticas sobre 17 contigs
 
 
