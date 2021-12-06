@@ -17,3 +17,6 @@ https://www.genome.gov/es/about-genomics/fact-sheets/Transcriptoma
 
 Ayuda de trimmomatic command
 https://www.youtube.com/watch?v=FaQSEflmA5M
+
+trimmomatic pagina original http://www.usadellab.org/cms/?page=trimmomatic
+
