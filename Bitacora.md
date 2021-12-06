@@ -514,25 +514,16 @@ K77  before_rr.fasta                          dataset.info   pipeline_state     
 (base) [ Ensamble]$ 
 ```
 
-Para ver la calidad del ensamble usare quast http://quast.sourceforge.net/docs/manual.html#sec2.3 y de acuerdo con la sintaxis `quast.py [options] <contig_file(s)>` correre el siguiente comando sin referencia
-
-```
-(base) [ Ensamble]$ quast.py --split-scaffolds -t 4 ./scaffolds.fasta -o CALIDAD_ENSAMBLE/ 
-(base) [ CALIDAD_ENSAMBLE]$ ls
-basic_stats  icarus_viewers  report.html  report.tex  report.txt             transposed_report.tsv
-icarus.html  quast.log       report.pdf   report.tsv  transposed_report.tex  transposed_report.txt
-```
-Lo que se traduce en 
-1. --split-scaffolds esta opcion indica que hace el analisis por scaffolds
-2. -t indica el numero de nucleos a usar (este caso 4)
-3. por consiguiente el nombre del fasta con scaffolds
-4. finalmente la salida a la carpeta en donde se quiere que se guarden los registros
-
-Con referencia basicamente es lo mismo, solo que 
--r indica la referencia y despues se pone la referencia y despues el .fasta con los scaffolds
+Para ver la calidad del ensamble usare quast http://quast.sourceforge.net/docs/manual.html#sec2.3 y de acuerdo con la sintaxis `quast.py [options] <contig_file(s)>` correre el siguiente comando con referencia
 
 ```
 (base) [ Ensamble]$ quast.py --split-scaffolds -t 4 -r ../SARS/SARS.fasta scaffolds.fasta 
 ```
 
+Lo que se traduce en 
+1. --split-scaffolds esta opcion indica que hace el analisis por scaffolds
+2. -t indica el numero de nucleos a usar (este caso 4)
+3. -r indica la referencia y despues se pone la referencia y despues el .fasta con los scaffolds
+4. por consiguiente el nombre del fasta con scaffolds
+5. finalmente la salida a la carpeta en donde se quiere que se guarden los registros
 
