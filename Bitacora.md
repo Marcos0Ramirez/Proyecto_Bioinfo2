@@ -516,6 +516,9 @@ K77  before_rr.fasta                          dataset.info   pipeline_state     
 
 Para ver la calidad del ensamble usare quast https://cab.spbu.ru/files/release2.2.1/quality.html y acuerdo con la sintaxis `quast.py [options] <contig_file(s)>` correre el siguiente comando 
 
+```
+(base) [mramirez@gaia Ensamble]$ quast.py --split-scaffolds -t 4 ./scaffolds.fasta -o CALIDAD_ENSAMBLE/ 
+```
 
 
 
