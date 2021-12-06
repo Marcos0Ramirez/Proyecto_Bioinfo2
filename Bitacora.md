@@ -389,7 +389,7 @@ Esto tampoco es bueno porque tambien indica que hay contaminacion de organismos 
 Finalmente, la cantidad de adaptadores universales Illumina es alta, de hasta el 40% en las posiciones 165-169
 </br>
 
-Ahora que ya hicimos el analisis, vamos a correr Trimmomatic, de acuerdo a esta pagina (http://www.usadellab.org/cms/?page=trimmomatic) cada una de las siguientes acciones indica
+Ahora que ya hicimos el analisis, vamos a correr Trimmomatic, de acuerdo a esta pagina (http://www.usadellab.org/cms/?page=trimmomatic) (en mi artiulo no olvidar poner referencia) cada una de las siguientes acciones indica
 ```
 Remove adapters 
         [Remover adaptadores] (ILLUMINACLIP:TruSeq3-PE.fa:2:30:10)
@@ -432,8 +432,39 @@ $ ls
 SRR13867562.fastq  TruSeq3-SE.fa  trimmSRR13867562.fastq
 ```
 
-Para obtener la cobertura (aqui poner como se calcula o al final del mapeo, poner lo que arroje `tablet`) primero realizaremos el mapeo con bowtie2, para ello necesitaremos el genoma de referencia el cual sera obtenido mediante homologos, solo por curiosidad lo hare con el coronavirus ***MERS-CoV*** que obtendre de la base de datos NCBI, entonces en la base de datos de ***genomes*** escribimos ***MERS-CoV*** </br> ![MERS-BUSQUEDA](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/MERS.png) </br> y en la referencia del genoma (***reference genome***) que aparece en la parte superior presionamos, por lo que al llevarnos a la siguiente pagina ![Fasta de la referencia](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/FASTA-MERS.png) presionaremos en la parte que dice ***FASTA*** </br>![Descarga](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/SEND-MERS.png)</br> y finalmente descarga poniendo en ***send to***, seleccionas ***Complete Record***, despues ***File*** y dejas el formato ***FASTA***
+Para obtener la cobertura (aqui poner como se calcula o al final del mapeo, poner lo que arroje `tablet`) primero realizaremos el mapeo con `bwa` (ya que por lo que tengo entendido `bowtie` solo es para librerias pareadas), para ello necesitaremos el genoma de referencia el cual sera obtenido mediante homologos, solo por curiosidad lo hare con el coronavirus ***MERS-CoV*** que obtendre de la base de datos NCBI, entonces en la base de datos de ***genomes*** escribimos ***MERS-CoV*** </br> ![MERS-BUSQUEDA](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/MERS.png) </br> y en la referencia del genoma (***reference genome***) que aparece en la parte superior presionamos, por lo que al llevarnos a la siguiente pagina ![Fasta de la referencia](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/FASTA-MERS.png) presionaremos en la parte que dice ***FASTA*** </br>![Descarga](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/SEND-MERS.png)</br> y finalmente descarga poniendo en ***send to***, seleccionas ***Complete Record***, despues ***File*** y dejas el formato ***FASTA***, (por tu  cuenta le pones el nombre que gustes).
+</br>
+(https://github.com/lh3/bwa (bibliografia en README.md))
+</br>
+Ahora podemos aplicar bwa, para ello hacemos una carpeta por aparte y en esa nueva carpeta, extraes tu genoma de referencia `.fasta`
 
+```
+(base) [ Index_bwa]$
+
+```
+
+Y con la siguiente estructura `bwa index ref.fa` (en base a la referencia http://bio-bwa.sourceforge.net/bwa.shtml) (no olvidar citar en mi articulo) con el fin de hacer un indice y poder alinear mi secuencia con la referencia, ya que el proposito es no hacerlo directamente con el `fasta`. por tanto se pone `bwa index` despues el fasta `MERS.fasta` y genera los archivos
+
+```
+(base) [ Index_bwa] $ bwa index MERS.fasta
+[bwa_index] Pack FASTA... 0.00 sec
+[bwa_index] Construct BWT for the packed sequence...
+[bwa_index] 0.01 seconds elapse.
+[bwa_index] Update BWT... 0.00 sec
+[bwa_index] Pack forward-only FASTA... 0.00 sec
+[bwa_index] Construct SA from BWT and Occ... 0.00 sec
+[main] Version: 0.7.17-r1188
+[main] CMD: bwa index MERS.fasta
+[main] Real time: 0.144 sec; CPU: 0.024 sec
+
+(base) [ Index_bwa] $ ls
+MERS.fasta  MERS.fasta.amb  MERS.fasta.ann  MERS.fasta.bwt  MERS.fasta.pac  MERS.fasta.sa
+```
+Ahora que ya tenemos el indice, podemos hacer el mapeo, para ello en base al archivo README.md de la pagina https://github.com/lh3/bwa podemos usar la siguiente sintaxis `bwa mem ref.fa reads.fq > aln.sam` ya que los reads son de 190bp, ademas provienen de la secuenciacion Illumina, tal como señala este repositorio. Entonces
+
+```
+
+```
 
 
 
