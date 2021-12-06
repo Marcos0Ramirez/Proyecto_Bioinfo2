@@ -20,3 +20,4 @@ https://www.youtube.com/watch?v=FaQSEflmA5M
 
 trimmomatic pagina original http://www.usadellab.org/cms/?page=trimmomatic
 
+Cobertura calculos https://thesequencingcenter.com/knowledge-base/coverage/
