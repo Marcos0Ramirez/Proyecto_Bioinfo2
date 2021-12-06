@@ -527,6 +527,7 @@ Lo que se traduce en
 4. por consiguiente el nombre del fasta con scaffolds
 5. finalmente la salida a la carpeta en donde se quiere que se guarden los registros
 
-Entonces dejo el link para conseguir el reporte https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/REF_CALIDAD_ENSAMBLE_report.html
-y asi en base a los datos (**donde consulte para saber el significado de cada cosa**  http://quast.sourceforge.net/docs/manual.html#sec3.1.1)
+Entonces dejo el link para conseguir el reporte de calidad del ensamble https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/REF_CALIDAD_ENSAMBLE_report.html
+y asi en base a los datos (**donde consulte para saber el significado de cada cosa**  http://quast.sourceforge.net/docs/manual.html#sec3.1.1) </br> entonces el ***porcentaje de ensamble*** fue de tan solo el 46.96%; </br> el ***radio de duplicacion*** indica que muchos contigs cubren una misma region ya que el numero es `>1`; </br> el ***alineamiento mas largo*** es de 1501; </br> la cantidad de bases alineadas correctamente es de 14,433; </br> el parametro NGA50 es nulo ya que no fue necesario contar por bloques de alineamientos ya que no hubo contigs mal ensamblados (por lo que entendi) lo necesario para tenerlos que romper y seguir este protocolo; </br> en los ***ensamblajes incorrectos*** encontro 4 contigs de los cuales se tuvieron que ***relocalizar***, o invertir entre strands o buscar en otro cromosoma; 
+
 
