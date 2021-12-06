@@ -505,8 +505,16 @@ entonces
 Por tanto los archivos resultantes son:
 
 ```
+(spades) [ Ensamble]$ ls
+K21  assembly_graph.fastg                     contigs.fasta  input_dataset.yaml  run_spades.sh    spades.log
+K33  assembly_graph_after_simplification.gfa  contigs.paths  misc                run_spades.yaml  tmp
+K55  assembly_graph_with_scaffolds.gfa        corrected      params.txt          scaffolds.fasta  warnings.log
+K77  before_rr.fasta                          dataset.info   pipeline_state      scaffolds.paths
+(spades) [ Ensamble]$ conda deactivate
+(base) [ Ensamble]$ 
 ```
 
+Para ver la calidad del ensamble usare quast https://cab.spbu.ru/files/release2.2.1/quality.html y acuerdo con la sintaxis `quast.py [options] <contig_file(s)>` correre el siguiente comando 
 
 
 
