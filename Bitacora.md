@@ -380,11 +380,14 @@ ACTGTATAGGCAGAGCACTTCTCATTAAGTACTTTATCAATCCTTTCATC	5088	0.10066787436459339	No H
 GCTCCAGCACATATATCTACTATTGGTGTTTGTTCTATGACTGACATAGC	5062	0.10015345519527748	No Hit
 ```
 </br>
-
-
+Esto tampoco es bueno porque tambien indica que hay contaminacion de organismos (tan solo 3 probablemente) y por otro que no es tan diverso o que tambien sean bastante signifantes biologicamente.
+</br>
 
 ## Adapter Content
 ![Adapter Content](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/Adapter_Content.png)</br>
+</br>
+Finalmente, la cantidad de adaptadores universales Illumina es alta, de hasta el 40% en las posiciones 165-169
+</br>
 
 Ahora que ya hicimos el analisis, vamos a correr Trimmomatic, de acuerdo a esta pagina (http://www.usadellab.org/cms/?page=trimmomatic) cada una de las siguientes acciones indica
 ```
@@ -399,6 +402,44 @@ Scan the read with a 4-base wide sliding window, cutting when the average qualit
 Drop reads below the 36 bases long 
         [Quita lecturas que esten por debajo de 36 bases de longitud](MINLEN:36)
 ```
-Entonces con esto, podemos aplicar el siguiente comando
+Entonces con esto, podemos aplicar el siguiente comando con el fin de limpiar la muestra
+```
+$ java -jar /app/anaconda3/opt/trinity-2.9.1/trinity-plugins/Trimmomatic/trimmomatic.jar SE -threads 2 -phred33 SRR13867562.fastq trimmSRR13867562.fastq ILLUMINACLIP:TruSeq3-SE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
+```
+ 1. La ruta que esta despues de `-jar` es para llamar a `trimmomatic`, al cual se tuvo que buscar para llamarlo (/app/anaconda3/opt/trinity-2.9.1/trinity-plugins/Trimmomatic/trimmomatic.jar).
+ 2. Por otra parte el SE es parte del protocolo de trimmomatic para hacer el recorte a `fastq: con reads single end`.
+ 3. En tanto `-threads` es el numero de nucleos que usaran (se usaron 2).
+ 4. Para esta parte se escoge el tipo de phred al que se va a basar el trimming, por esta razon dentro de las caracteristicas que vimos en el `html fastqc`, indicaba que la calidad es en referencia a `Illumina 1.9` y por tanto esto lo hace a partir de `phred 33`.
+ 5. Lo siguiente se pone la ruta del `fastq` al que se le quiere limpiar (`SRR13867562.fastq`), y el siguiente es como quieres que salga el resultado ***en .fastq*** (`trimmSRR13867562.fastq`), aqui tuve unos problemas con la ruta del archivo original `SRR13867562.fastq`, por lo que decidi cambiar el `fastq` a la ruta actual donde estaba ejecutando el comando de `java`.
+ 6. Con la siguiente parte `ILLUMINACLIP:TruSeq3-SE.fa:2:30:10` tambien decidi `copiar` el arhivo `TruSeq3-SE.fa` de la ruta original a donde estaba trabajando, por si las moscas. Ademas con las siguientes partes del comando `LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36` pues las escribi por default como estaba en la descripcion que di anteriormente (bueno traduci con mis palabras jeje).
+</br>
+Todo esto fue posible al consultar el siguiente video https://www.youtube.com/watch?v=FaQSEflmA5M
+</br>
+Entonces al aplicar este comando resulto en el archivo que nombre al final:
+```
+$ java -jar /app/anaconda3/opt/trinity-2.9.1/trinity-plugins/Trimmomatic/trimmomatic.jar SE -threads 2 -phred33 SRR13867562.fastq trimmSRR13867562.fastq ILLUMINACLIP:TruSeq3-SE.fa:2:30:10 LEADING:3 TRAILING:
+3 SLIDINGWINDOW:4:15 MINLEN:36
+TrimmomaticSE: Started with arguments:
+ -threads 2 -phred33 SRR13867562.fastq trimmSRR13867562.fastq ILLUMINACLIP:TruSeq3-SE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
+Using Long Clipping Sequence: 'AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTA'
+Using Long Clipping Sequence: 'AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC'
+ILLUMINACLIP: Using 0 prefix pairs, 2 forward/reverse sequences, 0 forward only sequences, 0 reverse only sequences
+Input Reads: 5054244 Surviving: 4828483 (95.53%) Dropped: 225761 (4.47%)
+TrimmomaticSE: Completed successfully
+
+$ ls
+SRR13867562.fastq  TruSeq3-SE.fa  trimmSRR13867562.fastq
+```
+
+Para obtener la cobertura (aqui poner como se calcula o al final del mapeo, poner lo que arroje `tablet`) primero realizaremos el mapeo con bowtie2, para ello necesitaremos el genoma de referencia el cual sera obtenido mediante homologos, solo por curiosidad lo hare con el coronavirus ***MERS-CoV*** que obtendre de la base de datos NCBI, entonces en la base de datos de ***genomes*** escribimos ***MERS-CoV*** </br> ![MERS-BUSQUEDA](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/MERS.png) </br> y en la referencia del genoma (***reference genome***) que aparece en la parte superior presionamos, por lo que al llevarnos a la siguiente pagina ![Fasta de la referencia](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/FASTA-MERS.png) presionaremos en la parte que dice ***FASTA*** </br>![Descarga](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/SEND-MERS.png)</br> y finalmente descarga poniendo en ***send to***, seleccionas ***Complete Record***, despues ***File*** y dejas el formato ***FASTA***
+
+
+
+
+
+
+
+
+
 
 
