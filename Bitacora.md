@@ -27,6 +27,7 @@ total 2.2G
 drwxrwxr-x 3 mramirez mramirez   28 Dec  5 01:23 ncbi
 ```
 </br>
+
 ## Control de calidad
 
 Para hacer el analisis de control de calidad, tomamos el archivo `SRR13867562.fastq` y corrimos el siguiente comando
