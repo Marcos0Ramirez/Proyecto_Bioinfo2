@@ -473,7 +473,7 @@ Ahora que ya tenemos el indice, podemos hacer el mapeo, para ello en base al arc
 MERS.fasta  MERS.fasta.amb  MERS.fasta.ann  MERS.fasta.bwt  MERS.fasta.pac  MERS.fasta.sa  SARS2alignMERS.sam
 ```
 
-Entonces para obtener la cobertura abrimos `Tablet` y en la parte que dice ***home*** > ***Open assembly*** y en el primer recuadro se coloca el archivo `.sam` y en el segundo recuadro se pone `.fasta`, una vez terminado el ensamble presionamos donde estan las estadisticas en el apartado de la izquierda y asi podemos ver el mapeo tal como este </br>![Tablet](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/TABLET.png)</br> y para obtener la cobertura nos vamos a ***advanced*** y en donde dice ***coverage*** lo presionamos y seleccionamos tambien ***Coordinates*** para finalemente poner el raton sobre el mapa que esta en la parte superior </br>![Descarga](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/Cobertura.png)</br> Por lo tanto vemos que tiene una buena cobertura, del 99.993% o mediante la ecuacion de Lander-Waterman tal que ***C = (L x N) / G*** si 
+Entonces para obtener la cobertura abrimos `Tablet` y en la parte que dice ***home*** > ***Open assembly*** y en el primer recuadro se coloca el archivo `.sam` y en el segundo recuadro se pone `.fasta`, una vez terminado el ensamble presionamos donde estan las estadisticas en el apartado de la izquierda y asi podemos ver el mapeo tal como este </br>![Tablet](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/TABLET.png)</br> y para obtener la cobertura nos vamos a ***advanced*** y en donde dice ***coverage*** lo presionamos y seleccionamos tambien ***Coordinates*** para finalemente poner el raton sobre el mapa que esta en la parte superior </br>![Descarga](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/Cobertura.png)</br> Por lo tanto vemos que tiene una buena cobertura, del 99.993% o mediante la ecuacion de Lander-Waterman (ref: https://thesequencingcenter.com/knowledge-base/coverage/)tal que ***C = (L x N) / G*** si 
 1. ***C = coverage***
 2. ***L = read length (bp)***
 3. ***N = number of reads*** 
@@ -514,9 +514,7 @@ K77  before_rr.fasta                          dataset.info   pipeline_state     
 (base) [ Ensamble]$ 
 ```
 
-Para ver la calidad del ensamble usare quast https://cab.spbu.ru/files/release2.2.1/quality.html y acuerdo con la sintaxis `quast.py [options] <contig_file(s)>` correre el siguiente comando 
-
-Sin referencia
+Para ver la calidad del ensamble usare quast http://quast.sourceforge.net/docs/manual.html#sec2.3 y de acuerdo con la sintaxis `quast.py [options] <contig_file(s)>` correre el siguiente comando sin referencia
 
 ```
 (base) [ Ensamble]$ quast.py --split-scaffolds -t 4 ./scaffolds.fasta -o CALIDAD_ENSAMBLE/ 
@@ -524,7 +522,14 @@ Sin referencia
 basic_stats  icarus_viewers  report.html  report.tex  report.txt             transposed_report.tsv
 icarus.html  quast.log       report.pdf   report.tsv  transposed_report.tex  transposed_report.txt
 ```
-Con referencia 
+Lo que se traduce en 
+1. --split-scaffolds esta opcion indica que hace el analisis por scaffolds
+2. -t indica el numero de nucleos a usar (este caso 4)
+3. por consiguiente el nombre del fasta con scaffolds
+4. finalmente la salida a la carpeta en donde se quiere que se guarden los registros
+
+Con referencia basicamente es lo mismo, solo que 
+-r indica la referencia y despues se pone la referencia y despues el .fasta con los scaffolds
 
 ```
 (base) [ Ensamble]$ quast.py --split-scaffolds -t 4 -r ../SARS/SARS.fasta scaffolds.fasta 
