@@ -27,6 +27,8 @@ total 2.2G
 drwxrwxr-x 3 mramirez mramirez   28 Dec  5 01:23 ncbi
 ```
 </br>
+## Control de calidad
+
 Para hacer el analisis de control de calidad, tomamos el archivo `SRR13867562.fastq` y corrimos el siguiente comando
 
 `fastqc SRR13867562.fastq`
@@ -68,7 +70,7 @@ SRR13867562.fastq  SRR13867562_fastqc.html  SRR13867562_fastqc.zip  ncbi
 ```
 Por tanto abres `SRR13867562_fastqc.html` para realizar el analisis. Entonces de la pagina https://www.bioinformatics.babraham.ac.uk/projects/fastqc/ en el apartado de ***Documentation*** puedes hacer click en ***copy of the FastQC*** para hacer una mejor interpretacion de las estadisticas que aparecen en tu fastqc.
 
-## Basic Statistics </br>
+### Basic Statistics </br>
 ![Basic Statistics](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/Basic_Statistics.png) </br>
 te da el </br>
 1. Nombre del archivo fastq
@@ -79,40 +81,40 @@ te da el </br>
 6. La longitud promedio de las secuencias es de 190 bases, ya que todas son de esa longitud
 7. Y el contenido de GC consta de un porcentaje de casi la mitad (los detalles en la grafica correspondiente)
 ****
-## Per base sequence quality
+### Per base sequence quality
 ![Per base sequence quality](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/Per_base_sequence_quality.png)</br>
 Podemos ver que la calidad de las secuencias es buena, que el 100% de las bases representan calidades por encima de 28 de calidad ASCII (sanger / Ilumina 1.9) a excepcion al final la base numero 190 llega a tener calidades pobres de hasta 11, pero aun en promedio sigue siendo de buena calidad ya que las bases con muy baja calidad (poco menos del 25% de ellas) tienen una pequeña influencia.
 </br>
-## Per sequence quality scores
+### Per sequence quality scores
 ![Per sequence quality scores](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/Per_sequence_quality_scores.png)
 </br>
 Aqui es mas visible, ya que la distribucion de las bases ronda en calidades mayores a 36, esto quiere decir que la tasa de error es menor a 0.2%
 </br>
-## Per base sequence content
+### Per base sequence content
 ![Per base sequence content](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/Per_base_sequence_content.png)</br>
 El resultado no es el mas optimo al inicio y al final, osea que hay diferencias mayores al 10% entre G y C en la posicion 5, 150-154, 170-174 y 190. La misma situacion entre A y T la diferencia es >10% en la posiciones 5-6, a mitad entre 150-154. Aunque esto sera removido posteriormente
 </br>
-## Per sequence GC content
+### Per sequence GC content
 ![Per sequence GC content](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/Per_sequence_GC_content.png)
 </br>
 Es observable que la  distribucion en el contenido de GC esta fuera del teorico, resultando en que mayor a 450000 secuencias tiene un porcentaje de GC entre 35-52% por tanto indica que no hay una buena distribucion y hay muchas secuencias con tendencia a tener >35%
 </br>
-## Per base N content
+### Per base N content
 ![Per base N content](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/Per_base_N_content.png)
 </br>
 Esto indica que todas las bases fueron nombradas y no hubo ninguna que no se reconociera.
 </br>
-## Sequence Length Distribution
+### Sequence Length Distribution
 ![Sequence Length Distribution](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/Sequence_Length_Distribution.png)
 </br>
 Como vimos inicio, no señalo el minimo y el maximo en longitud de secuencias, la mayoria o me atreveria a decir que todas tienen longitud de 190 bases
 </br>
-## Sequence Duplication Levels
+### Sequence Duplication Levels
 ![Sequence Duplication Levels](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/Sequence_Duplication_Levels.png)
 </br>
 Los niveles de duplicacion son muy altos, de hasta el 60% lo que podria significar que hay un bajo nivel de cobertura de la secuencia objetivo, y por tanto al eliminar los duplicados solo haria que nos quedemos con el 1.58% de secuencias
 </br>
-## Overrepresented sequences
+### Overrepresented sequences
 Para hacer esta tabla, copie del html y lo puse directamente en este markdown.
 ```
 Sequence						Count	Percentage		Possible Source
@@ -383,11 +385,12 @@ GCTCCAGCACATATATCTACTATTGGTGTTTGTTCTATGACTGACATAGC	5062	0.10015345519527748	No H
 Esto tampoco es bueno porque tambien indica que hay contaminacion de organismos (tan solo 3 probablemente) y por otro que no es tan diverso o que tambien sean bastante signifantes biologicamente.
 </br>
 
-## Adapter Content
+### Adapter Content
 ![Adapter Content](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/Adapter_Content.png)</br>
 </br>
 Finalmente, la cantidad de adaptadores universales Illumina es alta, de hasta el 40% en las posiciones 165-169
 </br>
+## Filtrado de secuencias
 
 Ahora que ya hicimos el analisis, vamos a correr Trimmomatic, de acuerdo a esta pagina (http://www.usadellab.org/cms/?page=trimmomatic) (en mi artiulo no olvidar poner referencia) cada una de las siguientes acciones indica
 ```
@@ -431,6 +434,7 @@ TrimmomaticSE: Completed successfully
 $ ls
 SRR13867562.fastq  TruSeq3-SE.fa  trimmSRR13867562.fastq
 ```
+## Mapeo y cobertura
 
 Para obtener la cobertura (aqui poner como se calcula o al final del mapeo, poner lo que arroje `tablet`) primero realizaremos el mapeo con `bwa` (ya que por lo que tengo entendido `bowtie` solo es para librerias pareadas), para ello necesitaremos el genoma de referencia para ese usamos el genoma ***SARS-CoV-2*** que obtendre de la base de datos NCBI, entonces en la base de datos de ***genomes*** escribimos ***SARS-CoV-2*** </br> ![SARS-CoV-2-BUSQUEDA](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/SARS2.png) </br> y en la referencia del genoma (***reference genome***) que aparece en la parte superior presionamos, por lo que al llevarnos a la siguiente pagina ![Fasta de la referencia](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/SARS2-FASTA.png) presionaremos en la parte que dice ***FASTA*** </br>![Descarga](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/SARS2-SEND.png)</br> y finalmente descarga poniendo en ***send to***, seleccionas ***Complete Record***, despues ***File*** y dejas el formato ***FASTA***, (por tu  cuenta le pones el nombre que gustes).
 </br>
@@ -468,7 +472,9 @@ Ahora que ya tenemos el indice, podemos hacer el mapeo, para ello en base al arc
 MERS.fasta  MERS.fasta.amb  MERS.fasta.ann  MERS.fasta.bwt  MERS.fasta.pac  MERS.fasta.sa  SARS2alignMERS.sam
 ```
 
-Entonces para obtener la cobertura abrimos `Tablet` y en la parte que dice ***home*** > ***Open assembly*** y en el primer recuadro se coloca el archivo `.sam` y en el segundo recuadro se pone `.fasta`, una vez terminado el ensamble presionamos donde estan las estadisticas en el apartado de la izquierda y asi podemos ver el mapeo tal como este </br>![Tablet](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/TABLET.png)</br> y para obtener la cobertura nos vamos a ***advanced*** y en donde dice ***coverage*** lo presionamos y seleccionamos tambien ***Coordinates*** para finalemente poner el raton sobre el mapa que esta en la parte superior </br>![Descarga](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/Cobertura.png)</br>
+Entonces para obtener la cobertura abrimos `Tablet` y en la parte que dice ***home*** > ***Open assembly*** y en el primer recuadro se coloca el archivo `.sam` y en el segundo recuadro se pone `.fasta`, una vez terminado el ensamble presionamos donde estan las estadisticas en el apartado de la izquierda y asi podemos ver el mapeo tal como este </br>![Tablet](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/TABLET.png)</br> y para obtener la cobertura nos vamos a ***advanced*** y en donde dice ***coverage*** lo presionamos y seleccionamos tambien ***Coordinates*** para finalemente poner el raton sobre el mapa que esta en la parte superior </br>![Descarga](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/Cobertura.png)</br> Por lo tanto vemos qeu tienen una buena cobertura, del 99.993%
+
+## Ensamble
 
 
 
