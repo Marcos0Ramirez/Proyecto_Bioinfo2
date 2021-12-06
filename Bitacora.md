@@ -460,7 +460,7 @@ Y con la siguiente estructura `bwa index ref.fa` (en base a la referencia http:/
 (base) [ Index_bwa] $ ls
 MERS.fasta  MERS.fasta.amb  MERS.fasta.ann  MERS.fasta.bwt  MERS.fasta.pac  MERS.fasta.sa
 ```
-Ahora que ya tenemos el indice, podemos hacer el mapeo, para ello en base al archivo README.md de la pagina https://github.com/lh3/bwa podemos usar la siguiente sintaxis `bwa mem ref.fa reads.fq > aln.sam` ya que los reads son de 190bp, ademas provienen de la secuenciacion Illumina, tal como señala este repositorio. Entonces
+Ahora que ya tenemos el indice, podemos hacer el mapeo, para ello en base al archivo README.md de la pagina https://github.com/lh3/bwa podemos usar la siguiente sintaxis `bwa mem ref.fa reads.fq > aln.sam`, ya que los reads considere por consenso que en la mayoria de ellos son de 70bp < reads < 190bp, ademas cabe destacar que provienen de la secuenciacion Illumina, tal como señala este repositorio. Entonces el comando resulta en
 
 ```
 (base) [ Index_bwa] $ bwa mem MERS.fasta ../trimmSRR13867562.fastq > SARS2alignMERS.sam
@@ -468,7 +468,7 @@ Ahora que ya tenemos el indice, podemos hacer el mapeo, para ello en base al arc
 MERS.fasta  MERS.fasta.amb  MERS.fasta.ann  MERS.fasta.bwt  MERS.fasta.pac  MERS.fasta.sa  SARS2alignMERS.sam
 ```
 
-
+Entonces para obtener la cobertura abrimos `Tablet` y en la parte que dice ***home*** > ***Open assembly*** y en el primer recuadro se coloca el archivo `.sam` y en el segundo recuadro se pone `.fasta`, una vez terminado el ensamble presionamos donde estan las estadisticas en el apartado de la izquierda y asi podemos ver el mapeo tal como este </br>![Tablet](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/TABLET.png)</br> y para obtener la cobertura nos vamos a ***advanced*** y en donde dice ***coverage*** lo presionamos y seleccionamos tambien ***Coordinates*** para finalemente poner el raton sobre el mapa que esta en la parte superior </br>![Descarga](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/Cobertura.png)</br>
 
 
 
