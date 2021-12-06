@@ -14,3 +14,6 @@ http://www.news-courier.com/genomics/articles/rna-seq-basics-applications-and-pr
 
 Transcriptoma
 https://www.genome.gov/es/about-genomics/fact-sheets/Transcriptoma
+
+Ayuda de trimmomatic command
+https://www.youtube.com/watch?v=FaQSEflmA5M
