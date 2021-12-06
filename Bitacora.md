@@ -473,12 +473,39 @@ Ahora que ya tenemos el indice, podemos hacer el mapeo, para ello en base al arc
 MERS.fasta  MERS.fasta.amb  MERS.fasta.ann  MERS.fasta.bwt  MERS.fasta.pac  MERS.fasta.sa  SARS2alignMERS.sam
 ```
 
-Entonces para obtener la cobertura abrimos `Tablet` y en la parte que dice ***home*** > ***Open assembly*** y en el primer recuadro se coloca el archivo `.sam` y en el segundo recuadro se pone `.fasta`, una vez terminado el ensamble presionamos donde estan las estadisticas en el apartado de la izquierda y asi podemos ver el mapeo tal como este </br>![Tablet](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/TABLET.png)</br> y para obtener la cobertura nos vamos a ***advanced*** y en donde dice ***coverage*** lo presionamos y seleccionamos tambien ***Coordinates*** para finalemente poner el raton sobre el mapa que esta en la parte superior </br>![Descarga](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/Cobertura.png)</br> Por lo tanto vemos qeu tienen una buena cobertura, del 99.993%
+Entonces para obtener la cobertura abrimos `Tablet` y en la parte que dice ***home*** > ***Open assembly*** y en el primer recuadro se coloca el archivo `.sam` y en el segundo recuadro se pone `.fasta`, una vez terminado el ensamble presionamos donde estan las estadisticas en el apartado de la izquierda y asi podemos ver el mapeo tal como este </br>![Tablet](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/TABLET.png)</br> y para obtener la cobertura nos vamos a ***advanced*** y en donde dice ***coverage*** lo presionamos y seleccionamos tambien ***Coordinates*** para finalemente poner el raton sobre el mapa que esta en la parte superior </br>![Descarga](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/Cobertura.png)</br> Por lo tanto vemos que tiene una buena cobertura, del 99.993% o mediante la ecuacion de Lander-Waterman tal que ***C = (L x N) / G*** si 
+1. ***C = coverage***
+2. ***L = read length (bp)***
+3. ***N = number of reads*** 
+4. ***G = haploid genome length (bp)***
+
+- Entonces con G considere la longitud del fasta
+```
+# grep -v ">" SARS.fasta | wc -c
+30332
+```
+- asi como o ***L = 190bp*** tales que pueden ser menores o iguales a 190bp
+- Y ***N*** lo saque de tablet ***4,845,808***
+- Por tanto ***C = (L x N) / G*** talque ***C = (190 x 4,845,808)/30,332 = 30,354x*** lo que si
+
 
 ## Ensamble
-De acuerdo con la pagina oficial de spades (el ensamblador de genomas que 
+De acuerdo con la pagina oficial de spades (el ensamblador de genomas https://cab.spbu.ru/software/spades/ en el manual) estructuramos el comando asi
+`spades.py [options] -o <output_dir>` entonces le indicamos que se active spades con `conda activate spades` y corremos este comando
 
+```
+(spades) [ project]$ spades.py -t 4 -s trimmSRR13867562.fastq -o Ensamble/ 
+```
 
+entonces
+1. Con -t indicamos los nucleos, osea 4
+2. Con -s le indicamos el archivo (single end) .fastq, este caso el que ya esta filtrado 
+3. Por default no esta especificada la opcion -k, pero este corre con los tamaños de k-meros 21, 33, 55 y 77 por que sapdes estimo que las longitudes de los reads son de 190 osea >=150
+4. y finalemente -o es la opcion para señalar la carpeta (este caso Ensamble
+Por tanto los archivos resultantes son:
+
+```
+```
 
 
 
