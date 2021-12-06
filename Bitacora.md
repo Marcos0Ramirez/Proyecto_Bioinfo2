@@ -527,3 +527,6 @@ Lo que se traduce en
 4. por consiguiente el nombre del fasta con scaffolds
 5. finalmente la salida a la carpeta en donde se quiere que se guarden los registros
 
+Entonces dejo el link para conseguir el reporte https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/REF_CALIDAD_ENSAMBLE_report.html
+y asi en base a los datos (**donde consulte para saber el significado de cada cosa**  http://quast.sourceforge.net/docs/manual.html#sec3.1.1)
+
