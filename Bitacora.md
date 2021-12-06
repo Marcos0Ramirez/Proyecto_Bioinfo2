@@ -416,7 +416,7 @@ $ java -jar /app/anaconda3/opt/trinity-2.9.1/trinity-plugins/Trimmomatic/trimmom
 Todo esto fue posible al consultar el siguiente video https://www.youtube.com/watch?v=FaQSEflmA5M
 </br>
 Entonces al aplicar este comando resulto en el archivo que nombre al final:
-```
+
 $ java -jar /app/anaconda3/opt/trinity-2.9.1/trinity-plugins/Trimmomatic/trimmomatic.jar SE -threads 2 -phred33 SRR13867562.fastq trimmSRR13867562.fastq ILLUMINACLIP:TruSeq3-SE.fa:2:30:10 LEADING:3 TRAILING:
 3 SLIDINGWINDOW:4:15 MINLEN:36
 TrimmomaticSE: Started with arguments:
@@ -429,8 +429,7 @@ TrimmomaticSE: Completed successfully
 
 $ ls
 SRR13867562.fastq  TruSeq3-SE.fa  trimmSRR13867562.fastq
-```
-```
+
 Para obtener la cobertura (aqui poner como se calcula o al final del mapeo, poner lo que arroje `tablet`) primero realizaremos el mapeo con bowtie2, para ello necesitaremos el genoma de referencia el cual sera obtenido mediante homologos, solo por curiosidad lo hare con el coronavirus ***MERS-CoV*** que obtendre de la base de datos NCBI, entonces en la base de datos de ***genomes*** escribimos ***MERS-CoV*** </br> ![MERS-BUSQUEDA](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/MERS.png) </br> y en la referencia del genoma (***reference genome***) que aparece en la parte superior presionamos, por lo que al llevarnos a la siguiente pagina ![Fasta de la referencia](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/FASTA-MERS.png) presionaremos en la parte que dice ***FASTA*** </br>![Descarga](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/SEND-MERS.png)</br> y finalmente descarga poniendo en ***send to***, seleccionas ***Complete Record***, despues ***File*** y dejas el formato ***FASTA***
 
 
