@@ -452,7 +452,7 @@ Ahora podemos aplicar bwa, para ello hacemos una carpeta por aparte y en esa nue
 Y con la siguiente estructura `bwa index ref.fa` (en base a la referencia http://bio-bwa.sourceforge.net/bwa.shtml) (no olvidar citar en mi articulo) con el fin de hacer un indice y poder alinear mi secuencia con la referencia, ya que el proposito es no hacerlo directamente con el `fasta`. por tanto se pone `bwa index` despues el fasta `SARS.fasta` y genera los archivos
 
 ```
-(base) [ SARS]$ bwa index SARS.fastac
+(base) [ SARS]$ bwa index SARS.fasta
 
 (base) [ SARS]$ ls
 SARS.fasta  SARS.fasta.amb  SARS.fasta.ann  SARS.fasta.bwt  SARS.fasta.pac  SARS.fasta.sa
@@ -460,9 +460,9 @@ SARS.fasta  SARS.fasta.amb  SARS.fasta.ann  SARS.fasta.bwt  SARS.fasta.pac  SARS
 Ahora que ya tenemos el indice, podemos hacer el mapeo, para ello en base al archivo README.md de la pagina https://github.com/lh3/bwa podemos usar la siguiente sintaxis `bwa mem ref.fa reads.fq > aln.sam`, ya que los reads considere por consenso que en la mayoria de ellos son de 70bp < reads < 190bp, ademas cabe destacar que provienen de la secuenciacion Illumina, tal como señala este repositorio. Entonces el comando resulta en
 
 ```
-(base) [ Index_bwa] $ bwa mem MERS.fasta ../trimmSRR13867562.fastq > SARS2alignMERS.sam
-(base) [ Index_bwa] $ ls
-MERS.fasta  MERS.fasta.amb  MERS.fasta.ann  MERS.fasta.bwt  MERS.fasta.pac  MERS.fasta.sa  SARS2alignMERS.sam
+(base) [ SARS]$ bwa mem SARS.fasta ../SRR13867562.fastq >SARS2align.sam
+(base) [ SARS]$ ls
+SARS.fasta  SARS.fasta.amb  SARS.fasta.ann  SARS.fasta.bwt  SARS.fasta.pac  SARS.fasta.sa  SARS2align.sam
 ```
 
 Entonces para obtener la cobertura abrimos `Tablet` y en la parte que dice ***home*** > ***Open assembly*** y en el primer recuadro se coloca el archivo `.sam` y en el segundo recuadro se pone `.fasta`, una vez terminado el ensamble presionamos donde estan las estadisticas en el apartado de la izquierda y asi podemos ver el mapeo tal como este </br>![Tablet](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/TABLET.png)</br> y para obtener la cobertura nos vamos a ***advanced*** y en donde dice ***coverage*** lo presionamos y seleccionamos tambien ***Coordinates*** para finalemente poner el raton sobre el mapa que esta en la parte superior </br>![Descarga](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/Cobertura.png)</br> Por lo tanto vemos que tiene una buena cobertura, del 99.993% o mediante la ecuacion de Lander-Waterman (ref: https://thesequencingcenter.com/knowledge-base/coverage/)tal que ***C = (L x N) / G*** si 
