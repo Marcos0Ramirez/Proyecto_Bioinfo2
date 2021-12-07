@@ -437,33 +437,25 @@ SRR13867562.fastq  TruSeq3-SE.fa  trimmSRR13867562.fastq
 ```
 ## Mapeo y cobertura
 
-Para obtener la cobertura (aqui poner como se calcula o al final del mapeo, poner lo que arroje `tablet`) primero realizaremos el mapeo con `bwa` (ya que por lo que tengo entendido `bowtie` solo es para librerias pareadas), para ello necesitaremos el genoma de referencia para ese usamos el genoma ***SARS-CoV-2*** que obtendre de la base de datos NCBI, entonces en la base de datos de ***genomes*** escribimos ***SARS-CoV-2*** </br> ![SARS-CoV-2-BUSQUEDA](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/SARS2.png) </br> y en la referencia del genoma (***reference genome***) que aparece en la parte superior presionamos, por lo que al llevarnos a la siguiente pagina ![Fasta de la referencia](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/SARS2-FASTA.png) presionaremos en la parte que dice ***FASTA*** </br>![Descarga](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/SARS2-SEND.png)</br> y finalmente descarga poniendo en ***send to***, seleccionas ***Complete Record***, despues ***File*** y dejas el formato ***FASTA***, (por tu  cuenta le pones el nombre que gustes).
+Para obtener la cobertura (aqui poner como se calcula o al final del mapeo, poner lo que arroje `tablet`) primero realizaremos el mapeo con `bwa` (ya que por lo que tengo entendido `bowtie` solo es para librerias pareadas), para ello necesitaremos el genoma de referencia para ese usamos el genoma ***SARS-CoV-2*** que obtendre de la base de datos NCBI, entonces en la base de datos de ***genomes*** escribimos ***SARS-CoV-2*** </br> ![SARS-CoV-2-BUSQUEDA](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/SARS2.png) </br> y en la referencia del genoma (***reference genome***) que aparece en la parte superior presionamos, por lo que al llevarnos a la siguiente pagina ![Fasta de la referencia](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/SARS2-FASTA.png) presionaremos en la parte que dice ***FASTA*** </br>![Descarga](https://github.com/Marcos0Ramirez/Proyecto_Bioinfo2/blob/main/SARS2-SEND.png)</br> y finalmente descarga poniendo en ***send to***, seleccionas ***Complete Record***, despues ***File*** y dejas el formato ***FASTA***, (por tu  cuenta le pones el nombre que gustes) este caso SARS.fasta.
 </br>
 (https://github.com/lh3/bwa (bibliografia en README.md))
 </br>
 Ahora podemos aplicar bwa, para ello hacemos una carpeta por aparte y en esa nueva carpeta, extraes tu genoma de referencia `.fasta`
 
 ```
-(base) [ Index_bwa]$
+(base) [ project]$ mkdir SARS
+(base) [ project]$ cd SARS
 
 ```
 
-Y con la siguiente estructura `bwa index ref.fa` (en base a la referencia http://bio-bwa.sourceforge.net/bwa.shtml) (no olvidar citar en mi articulo) con el fin de hacer un indice y poder alinear mi secuencia con la referencia, ya que el proposito es no hacerlo directamente con el `fasta`. por tanto se pone `bwa index` despues el fasta `MERS.fasta` y genera los archivos
+Y con la siguiente estructura `bwa index ref.fa` (en base a la referencia http://bio-bwa.sourceforge.net/bwa.shtml) (no olvidar citar en mi articulo) con el fin de hacer un indice y poder alinear mi secuencia con la referencia, ya que el proposito es no hacerlo directamente con el `fasta`. por tanto se pone `bwa index` despues el fasta `SARS.fasta` y genera los archivos
 
 ```
-(base) [ Index_bwa] $ bwa index MERS.fasta
-[bwa_index] Pack FASTA... 0.00 sec
-[bwa_index] Construct BWT for the packed sequence...
-[bwa_index] 0.01 seconds elapse.
-[bwa_index] Update BWT... 0.00 sec
-[bwa_index] Pack forward-only FASTA... 0.00 sec
-[bwa_index] Construct SA from BWT and Occ... 0.00 sec
-[main] Version: 0.7.17-r1188
-[main] CMD: bwa index MERS.fasta
-[main] Real time: 0.144 sec; CPU: 0.024 sec
+(base) [ SARS]$ bwa index SARS.fastac
 
-(base) [ Index_bwa] $ ls
-MERS.fasta  MERS.fasta.amb  MERS.fasta.ann  MERS.fasta.bwt  MERS.fasta.pac  MERS.fasta.sa
+(base) [ SARS]$ ls
+SARS.fasta  SARS.fasta.amb  SARS.fasta.ann  SARS.fasta.bwt  SARS.fasta.pac  SARS.fasta.sa
 ```
 Ahora que ya tenemos el indice, podemos hacer el mapeo, para ello en base al archivo README.md de la pagina https://github.com/lh3/bwa podemos usar la siguiente sintaxis `bwa mem ref.fa reads.fq > aln.sam`, ya que los reads considere por consenso que en la mayoria de ellos son de 70bp < reads < 190bp, ademas cabe destacar que provienen de la secuenciacion Illumina, tal como señala este repositorio. Entonces el comando resulta en
 
