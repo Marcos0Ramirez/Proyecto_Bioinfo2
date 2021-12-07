@@ -542,5 +542,7 @@ y asi en base a los datos (**donde consulte para saber el significado de cada co
 5. La grafica `misassemblies` indica que si hay contigs hasta como maximo un ensamble incorrecto, se cubriria el 37.8% del genoma y si fueran de hasta como maximo 4 ensambles incorrectos, entonces se cubriria el 48.3% del genoma
 6. Y para concluir el grafico `GC content` podemos denotar que si los contigs se rompieran en ventanas de 100bp y contaramos el porcentaje de GC que tiene cada una, encontrariamos que en los scaffolds hay un maximo de hasta 18 ventanas con 34% de GC, mientras en la referencia como maximo hasta 26 ventanas con 37% de GC
 
+## Anotación
+
 
 
